@@ -1,0 +1,13 @@
+{
+  "name": "mtsd-lab1",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Lab1",
+  "main": "app.js",
+  "repository": "git@github.com:Alzex/mtsd-lab1.git",
+  "author": "Alzex <alexzemly@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  }
+}
