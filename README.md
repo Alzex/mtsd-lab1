@@ -33,4 +33,4 @@ The program will read the coefficients from the file and output the roots of the
 
 
 ## Reverted commit
-The commit with hash [6e7262c](https://github.com/Alzex/mtsd-lab1/commit/6e7262c5b615e244a5a383a010a5a91984c336e8) was reverted because the changes was useless.
+The commit with hash [47eb419](https://github.com/Alzex/mtsd-lab1/commit/6e7262c5b615e244a5a383a010a5a91984c336e8) was reverted because the changes was useless.
