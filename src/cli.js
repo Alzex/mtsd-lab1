@@ -6,7 +6,7 @@ export class Cli {
       input: process.stdin,
       output: process.stdout,
     });
-    //he;lowes;ldasd lld aa
+
     return new Promise((resolve) => {
       rlInterface.question(question, (answer) => {
         resolve(answer);
