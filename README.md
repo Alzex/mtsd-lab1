@@ -30,3 +30,7 @@ node app.js <path to file>
 The program will read the coefficients from the file and output the roots of the equation.  
 > **Note**  
 > The file should contain the coefficients in the following order: `a b c\n`, where `a`, `b` and `c` are the coefficients of the equation (valid integer or float values) and \n is new line symbol. The file should contain only one equation. Any other symbols or format will cause the program to fail.
+
+
+## Reverted commit
+The commit with hash [6e7262c](https://github.com/Alzex/mtsd-lab1/commit/6e7262c5b615e244a5a383a010a5a91984c336e8) was reverted because the changes was useless.
