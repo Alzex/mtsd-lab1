@@ -1,23 +1,24 @@
 import { Validator } from './validator.js';
-import readline from 'readline';
+import { Cli } from './cli.js';
 
 export class Solver {
   constructor() {
     this.params = [];
   }
 
-  static question(question) {
-    const rlInterface = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-
-    return new Promise((resolve) => {
-      rlInterface.question(question, (answer) => {
-        resolve(answer);
-        rlInterface.close();
-      });
-    });
+  solve(a, b, c) {
+    console.log(`Quadratic equation: (${a})x^2 + (${b})x + (${c}) = 0`);
+    const d = b * b - 4 * a * c;
+    if (d < 0) {
+      console.log('No real roots');
+    } else if (d === 0) {
+      const x = -b / (2 * a);
+      console.log(`There is 1 root\nx = ${x}`);
+    } else {
+      const x1 = (-b + Math.sqrt(d)) / (2 * a);
+      const x2 = (-b - Math.sqrt(d)) / (2 * a);
+      console.log(`There are 2 roots\nx1 = ${x1}\nx2 = ${x2}`);
+    }
   }
   async startInteractive(qId = 0) {
     const questions = [
@@ -27,7 +28,7 @@ export class Solver {
     ];
 
     for (const question of questions.slice(qId)) {
-      const answer = await Solver.question(question);
+      const answer = await Cli.question(question);
       const value = parseFloat(answer);
       const qIndex = questions.indexOf(question);
       if (!Validator.isDecimal(value)) {
@@ -39,6 +40,6 @@ export class Solver {
       }
       this.params.push(value);
     }
-    console.log(this.params);
+    this.solve(...this.params);
   }
 }
