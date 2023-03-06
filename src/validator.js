@@ -12,6 +12,6 @@ export class Validator {
   }
 
   static isValidStructure(data) {
-    return /^-?\d+(\.\d+)?\s-?\d+(\.\d+)?\s-?\d+(\.\d+)?\n$/g.test(data);
+    return /^-?\d+(\.\d+)? -?\d+(\.\d+)? -?\d+(\.\d+)?\r?\n$/g.test(data);
   }
 }
