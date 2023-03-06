@@ -1,5 +1,6 @@
 import { Validator } from './validator.js';
 import { Cli } from './cli.js';
+import fs from 'fs';
 
 export class Solver {
   constructor() {
@@ -41,5 +42,30 @@ export class Solver {
       this.params.push(value);
     }
     this.solve(...this.params);
+  }
+
+  startFile() {
+    const path = process.argv[2];
+
+    if (!Validator.isValidFile(path)) {
+      process.stdout.write(`[ERROR] File ${path} does not exist\n`);
+      process.exit(1);
+    }
+
+    const data = fs.readFileSync(path, 'utf8');
+
+    if (!Validator.isValidStructure(data)) {
+      process.stdout.write(`[ERROR] Invalid file structure\n`);
+      process.exit(1);
+    }
+
+    const [a, b, c] = data.split(' ').map((value) => parseFloat(value));
+
+    if (a === 0) {
+      process.stdout.write('[ERROR] a cannot be 0\n');
+      process.exit(1);
+    }
+
+    this.solve(a, b, c);
   }
 }

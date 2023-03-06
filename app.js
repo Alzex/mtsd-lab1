@@ -6,5 +6,6 @@ if (process.argv.length < 3) {
   process.stdout.write('No arguments provided. Starting interactive mode.\n');
   solver.startInteractive();
 } else {
+  process.stdout.write('Starting file mode.\n');
   solver.startFile();
 }
